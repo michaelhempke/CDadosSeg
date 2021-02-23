@@ -1,17 +1,17 @@
-## Prática 2 (Parte 2a)
-Execução: **python3 Parte2a.py <dir ou caminho do binário>**
+## Prática 2 (Parte 2a - Analise de BIN)
+Execução: **python3 Parte2a_bin_analysis.py <dir ou caminho do binário>**
 
 **<dir ou caminho do binário>:** diretório com os arquivos binários ou o caminho de um arquivo binário
 
 **Exemplo - Parte 2a:**
 
-python3 Parte2a.py bin/
+python3 Parte2a_bin_analysis.py bin/
 
-python3 Parte2a.py bin/notepad.exe
+python3 Parte2a_bin_analysis.py bin/notepad.exe
 
 
-## Prática 2 (Parte 2b)
-Execução: **python3 Parte2b.py <caminho binário A> <caminho binário B>**
+## Prática 2 (Parte 2b - Comparacao de BIN)
+Execução: **python3 Parte2b_bin_analysis.py  <caminho binário A> <caminho binário B>**
 
 **<caminho binário A>:** caminho de um arquivo binário
 
@@ -19,7 +19,7 @@ Execução: **python3 Parte2b.py <caminho binário A> <caminho binário B>**
 
 **Exemplo - Parte 2b:**
 
-python3 Parte2b.py bin/notepad.exe bin/calc.exe
+python3 Parte2b_bin_analysis.py bin/notepad.exe bin/calc.exe
 
 
 
