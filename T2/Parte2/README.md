@@ -25,6 +25,6 @@ python3 Parte2b_bin_analysis.py bin/notepad.exe bin/calc.exe
 
 <hr>
 
-**Cabe mencionar que o código da Prática 2 utiliza a lib pefile.** 
+**Requisitor: lib pefile.** 
 
-**Faça a instalação com o pip (pip install pefile ou pip3 install pefile)**
+**Instalação: "pip install pefile" ou "pip3 install pefile"**
