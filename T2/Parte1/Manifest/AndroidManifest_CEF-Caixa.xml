@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="auto" package="br.gov.caixa.tem" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:fullBackupContent="@xml/appcenter_backup_rule" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="br.gov.caixa.tem.application.MyApplication" android:requestLegacyExternalStorage="true" android:roundIcon="@mipmap/ic_launcher" android:supportsRtl="true" android:theme="@style/Theme.AppCompat.Light.NoActionBar" android:usesCleartextTraffic="false">
+        <activity android:name="br.gov.caixa.tem.extrato.ui.activity.UpgradeContaActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.extrato.ui.activity.ExtratoBolsaFamiliaActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.extrato.ui.activity.PixExtratoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.extrato.ui.activity.SegundaViaActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.extrato.ui.activity.PixActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.DicasFinanceirasActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.PagarNaLotericaActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.OperacaoFinalizadaActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.AgendamentoPagamentoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.pagamento.PagamentoCameraQRCodeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.pagamento.PagamentoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.CartaoDebitoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.SaqueSemCartaoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.SelecionaFavoritoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.ConfiguracoesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.AjudaActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.TutorialActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.SegurancaActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.SelecionaContaActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.BiometriaActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.IdentificacaoActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_qr_code" android:name="br.gov.caixa.tem.ui.activities.QrCodeActivity" android:screenOrientation="portrait" android:theme="@style/NoActionBar"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.ContatoActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="br.gov.caixa.tem.ui.activities.SplashScreenAnimation" android:screenOrientation="portrait" android:theme="@style/TelaCheiaSemAnim">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.caixa.gov.br" android:pathPrefix="/caixatemqr" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="br.gov.caixa.tem.ui.activities.AuxilioActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="br.gov.caixa.tem.ui.activities.ChatActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="br.gov.caixa.tem.ui.activities.RegistrarActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.ServicoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:name="br.gov.caixa.tem.ui.activities.TelaInicialActivity" android:screenOrientation="portrait" android:theme="@style/TelaCheiaSemAnim"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.DetalhamentoImagemActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.extrato.ui.activity.ExtratoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.SenhaActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.LerQrCodeCustomizadaActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.LerQrCodePixCustomizadaActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.RecebimentoPixActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.gov.caixa.tem.ui.activities.SelecionaBancoActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.app.searchable" android:resource="@xml/busca_bancos"/>
+        </activity>
+        <activity android:name="com.worklight.wlclient.ui.UIActivity"/>
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" android:screenOrientation="portrait" android:theme="@style/Base.Theme.AppCompat"/>
+        <activity android:name="com.queue_it.androidsdk.QueueActivity"/>
+        <meta-data android:name="preloaded_fonts" android:resource="@array/preloaded_fonts"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/push_notification_icon"/>
+        <provider android:authorities="com.myfileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_provider_paths"/>
+        </provider>
+        <receiver android:enabled="true" android:name="br.gov.caixa.tem.servicos.conexao.ConectividadeInternetRecebedor">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="br.gov.caixa.tem.application.firebase.FirebaseCaixaTem">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:exported="false" android:launchMode="singleTask" android:name="net.openid.appauth.AuthorizationManagementActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="true" android:name="net.openid.appauth.RedirectUriReceiverActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="br.gov.caixa.tem"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="false" android:name="br.com.dnofd.heartbeat.service.EventService">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="br.com.dnofd.heartbeat.service.UpdateService">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="br.com.dnofd.heartbeat.service.ScanAppsService">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="br.com.dnofd.heartbeat.clientevent.ClientEventService">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+            </intent-filter>
+        </service>
+        <service android:name="br.com.dnofd.heartbeat.notification.NotificationListener" android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="br.com.dnofd.heartbeat.broadcast.OnBootScheduler">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="br.com.dnofd.heartbeat.broadcast.NetworkStateChangedActionListener">
+            <intent-filter>
+                <action android:name="android.net.wifi.STATE_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="br.com.dnofd.heartbeat.broadcast.CronListener"/>
+        <receiver android:name="br.com.dnofd.heartbeat.broadcast.PackageListener">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_INSTALL"/>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.firebase.jobdispatcher.GooglePlayReceiver" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <activity android:clearTaskOnLaunch="true" android:name="com.journeyapps.barcodescanner.CaptureActivity" android:screenOrientation="sensorLandscape" android:stateNotNeeded="true" android:theme="@style/zxing_CaptureTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <provider android:authorities="br.gov.caixa.tem.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="br.gov.caixa.tem.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

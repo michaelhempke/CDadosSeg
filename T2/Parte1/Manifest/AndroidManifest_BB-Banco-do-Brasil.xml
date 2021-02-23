@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="br.com.bb.android" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.nfc" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front.autofocus" android:required="false"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <permission android:name="br.com.bb.android.MAPS_RECEIVE" android:protectionLevel="signature"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="br.com.bb.android.permission.MAPS_RECEIVE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:hardwareAccelerated="true" android:icon="@drawable/ic_bb_app" android:label="@string/app_name" android:largeHeap="true" android:logo="@drawable/ic_pastilha_pf" android:name="br.com.bb.android.ResponsiveApplication" android:networkSecurityConfig="@xml/network_config" android:requestLegacyExternalStorage="true" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/google_maps_key"/>
+        <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="face"/>
+        <receiver android:label="NetworkChangeReceiver" android:name="br.com.bb.android.broadcastreceiver.NetworkChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="br.com.bb.android.pdf.PDFReceiver">
+            <intent-filter>
+                <action android:name="br.com.bb.android.pluginPDF.DECODE_PDF"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="br.com.bb.android.atendimento.BBAtendimentoNetworkReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.appsflyer.SingleInstallBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.adjust.sdk.AdjustReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="br.com.bb.android.notifications.NotificationProtocolExcecutorService"/>
+        <service android:name="br.com.bb.android.sms.PingSMSService"/>
+        <service android:name="br.com.bb.android.notifications.DismissNotificationService"/>
+        <service android:name="br.com.bb.android.RestartCurrentActivityService"/>
+        <service android:name="br.com.bb.android.notifications.RegistrationIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:label="@string/app_name" android:name="br.com.bb.android.reactnative.ReactLoginActivity" android:screenOrientation="portrait" android:theme="@style/ApiBaseThemeNoActionBar" android:windowSoftInputMode="adjustResize|stateUnchanged">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.bb.com.br" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:label="@string/app_bbmensagens_title" android:name="br.com.bb.android.messenger.MessengerActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="br.com.bb.android.acl.ACLActivity" android:theme="@style/ApiBaseThemeNoTitleBarFullscreen"/>
+        <activity android:name="br.com.bb.android.cardreader.CardReaderActivity" android:theme="@style/ApiBaseThemeNoTitleBarFullscreen"/>
+        <activity android:configChanges="screenSize" android:exported="false" android:label="@string/app_full_name" android:name="br.com.bb.android.login.LoginSecondStepActivity" android:noHistory="false" android:screenOrientation="portrait" android:theme="@style/ApiBaseThemeNoActionBar" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:configChanges="screenSize" android:exported="false" android:label="@string/app_full_name" android:name="br.com.bb.android.login.LoginSecondStepTypePasswordActivity" android:noHistory="false" android:screenOrientation="portrait" android:theme="@style/ApiBaseThemeNoActionBar" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:exported="false" android:label="Pagar ou receber" android:name="br.com.bb.android.pagamentoourecebimento.PagamentoRecebimentoActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:exported="false" android:label="App To App" android:name="br.com.bb.android.apptoapp.AppToAppActivity" android:screenOrientation="unspecified" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:label="Financie seu imóvel" android:name="br.com.bb.android.financieseuimovel.FinancieSeuImovelActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:label="Pagar ou receber" android:name="br.com.bb.android.pagamentoourecebimento.PagamentoRecebimentoCameraActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:label="@string/app_container_acesse_sua_conta" android:name="br.com.bb.android.appscontainer.tablet.AppsContainerActivityTablet" android:theme="@style/AppTheme.SplashTheme" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:configChanges="keyboardHidden|screenSize" android:exported="false" android:label="@string/app_container_acesse_sua_conta" android:name="br.com.bb.android.login.LoginContainerActivitySmartphone" android:screenOrientation="portrait" android:theme="@style/ApiBaseThemeNoActionBar" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:label="@string/app_full_name" android:name="br.com.bb.android.BBDialogActivity" android:theme="@style/Theme.Transparent"/>
+        <activity android:configChanges="keyboardHidden|screenSize" android:exported="false" android:label="@string/app_container_saque_movel" android:name="br.com.bb.android.saquemovel.SaqueMovelSmartphoneActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:label="@string/app_container_pve" android:name="br.com.bb.android.pve.PVESmartphoneActivity" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:configChanges="keyboardHidden|screenSize" android:exported="false" android:label="@string/app_container_cambio" android:name="br.com.bb.android.cambio.CambioSmartphoneActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:configChanges="keyboardHidden|screenSize" android:exported="false" android:label="@string/app_container_emissao_senha" android:name="br.com.bb.android.gat.GatSmartphoneActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:exported="false" android:label="" android:launchMode="singleTop" android:name="br.com.bb.android.telas.FragmentContainerActivitySmartphone" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:exported="false" android:label="" android:launchMode="singleTop" android:name="br.com.bb.android.shortcutapp.ShortcutAppManager" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:label="@string/app_full_name" android:launchMode="singleTop" android:name="br.com.bb.android.telas.FragmentContainerActivityTablet" android:screenOrientation="sensorLandscape" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:exported="false" android:label="@string/app_full_name" android:launchMode="singleTop" android:name="br.com.bb.android.telas.TransactionalActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:label="@string/app_full_name" android:name="br.com.bb.android.api.ui.touchimage.TakePictureActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica"/>
+        <activity android:configChanges="screenSize" android:exported="false" android:label="@string/app_full_name" android:name="br.com.bb.android.appscontainer.smartphone.AppsContainerActivitySmartphone" android:noHistory="false" android:screenOrientation="portrait" android:theme="@style/AppTheme.SplashTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="screenSize" android:exported="false" android:label="@string/app_full_name" android:name="br.com.bb.android.appscontainer.MoreAppsActivity" android:noHistory="false" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="true" android:label="@string/app_full_name" android:name="br.com.bb.android.nfc.NfcStartTransferenciaEntreContasActivity" android:noHistory="true" android:permission="android.permission.NFC" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateUnchanged">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="application/transferenciaentrecontas.bb.com.br"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="screenSize" android:exported="false" android:label="@string/app_full_name" android:name="br.com.bb.android.nfc.NfcAccountSelectionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:exported="false" android:label="@string/app_container_rede_atendimento" android:launchMode="singleTop" android:name="br.com.bb.android.webview.PortalBBActivity" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:label="@string/app_container_sac" android:launchMode="singleTop" android:name="br.com.bb.android.sac.SACActivitySmartphone" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:label="@string/app_container_new_password" android:launchMode="singleTop" android:name="br.com.bb.android.newpassword.NewPasswordActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:label="@string/app_container_portal_bb" android:launchMode="singleTop" android:name="br.com.bb.android.webview.ServiceNetworkActivity" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:label="@string/app_container_portal_bb" android:launchMode="singleTop" android:name="br.com.bb.android.boleto.SegundaViaBoletoActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:label="@string/app_full_name" android:name="br.com.bb.android.picturemanager.PictureActivity" android:theme="@style/TransparentActivity"/>
+        <activity android:exported="false" android:label="@string/app_full_name" android:name="br.com.bb.android.codereader.barcode.ItfFrameActivity" android:screenOrientation="landscape" android:theme="@style/ApiBaseThemeNoTitleBarFullscreen"/>
+        <activity android:exported="false" android:label="@string/app_full_name" android:name="br.com.bb.android.codereader.barcode.QrCodeFrameActivity" android:screenOrientation="landscape"/>
+        <activity android:exported="false" android:label="@string/app_full_name" android:name="br.com.bb.android.cloudprinting.PrintDialogActivity" android:theme="@style/ApiBaseThemeNoTitleBarFullscreen"/>
+        <activity android:label="@string/app_full_name" android:name="br.com.bb.android.user.configurations.UserProfileConfigActivitySmartphone" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:label="@string/app_container_bb_code" android:name="br.com.bb.android.bbcode.BBCodeKnowHowActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica"/>
+        <activity android:exported="false" android:label="@string/app_container_bb_code" android:name="br.com.bb.android.bbcode.BBCodeActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica"/>
+        <activity android:exported="false" android:label="@string/app_container_bb_code" android:name="br.com.bb.android.bbcode.BBCodeTelaSucesso" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica"/>
+        <activity android:exported="false" android:label="@string/app_container_bb_code" android:name="br.com.bb.android.bbcode.BBCodeCameraActivity" android:theme="@style/AppThemePessoaFisica"/>
+        <activity android:configChanges="keyboardHidden|screenSize" android:exported="false" android:label="@string/app_container_telefones_bb" android:name="br.com.bb.android.telas.TelefoneActivitySmartphone" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:configChanges="keyboardHidden|screenSize" android:exported="false" android:label="@string/title_activity_about" android:name="br.com.bb.android.telas.AboutActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:configChanges="keyboardHidden|screenSize" android:exported="false" android:label="@string/app_campaign_title" android:name="br.com.bb.android.notifications.NotificationsActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:configChanges="keyboardHidden|screenSize" android:exported="false" android:label="@string/app_campaign_title" android:name="br.com.bb.android.notifications.ExternalNotificationsActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:exported="false" android:label="@string/app_bbmensagens_title" android:name="br.com.bb.android.api.webview.WebViewActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:exported="false" android:label="@string/app_container_pdf_loading_title" android:name="br.com.bb.android.PDFLoadingActivity" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:name="br.com.bb.android.bbcode.BBCodeSaibaComoActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_notification_central_title" android:name="br.com.bb.android.notifications.externalpushes.PushOnContainerActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_unlock_device" android:name="br.com.bb.android.sms.WaitSMSForUnlockActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|screenSize" android:exported="false" android:label="@string/app_container_deposito" android:name="br.com.bb.android.deposito.cheque.DepositoSmartphoneActivity" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustNothing|stateAlwaysVisible"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:label="@string/app_container_consulta_deposito" android:name="br.com.bb.android.consulta.deposito.ConsultaDepositoSmartphoneActivity" android:screenOrientation="portrait" android:theme="@style/cameraTheme"/>
+        <activity android:exported="false" android:label="@string/app_container_bb_code" android:name="br.com.bb.android.bbcode.BBCodeRequestK2Active" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica"/>
+        <activity android:exported="false" android:label="@string/app_container_bb_code" android:name="br.com.bb.android.BBCodeConfirmationCodeActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:label="@string/app_container_international" android:name="br.com.bb.android.international.ui.BBInternationalTransactionalActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:label="@string/app_container_international" android:name="br.com.bb.android.international.ui.BBInternationalAccountManagerActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name="br.com.bb.android.api.ui.touchimage.BBImageViewerActivity" android:theme="@style/AppThemeLaunching"/>
+        <activity android:label="@string/title_activity_watson" android:name="br.com.bb.android.watson.WatsonActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/title_activity_easy_find" android:name="br.com.bb.android.easyfind.EasyFindAndWatsonActivity" android:screenOrientation="portrait" android:theme="@style/ApiBaseThemeNoActionBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="br.com.bb.android.sms.SMSActivity" android:screenOrientation="portrait" android:theme="@style/ApiBaseThemeNoActionBar"/>
+        <activity android:configChanges="keyboardHidden|screenSize" android:exported="false" android:label="" android:name="br.com.bb.android.openaccountpf.OpenAccountActivityPF" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:configChanges="keyboardHidden|screenSize" android:exported="false" android:label="" android:name="br.com.bb.android.openaccountpj.OpenAccountActivityPJ" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:configChanges="keyboardHidden|screenSize" android:exported="false" android:label="" android:name="br.com.bb.android.openaccount.OpenAccountActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:configChanges="keyboardHidden|screenSize" android:exported="false" android:label="" android:name="br.com.bb.android.ourocard.OurocardRequestActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:name="br.com.bb.android.api.facetracker.FaceTrackerActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="br.com.bb.android.api.facetracker.PreviewActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="br.com.bb.android.api.facetracker.lollipop.FaceTrackerActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="br.com.bb.android.api.facetracker.bbfacetracker.BBFaceDetectActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="br.com.bb.android.api.contacts.ContactsActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="br.com.bb.android.GenericFragmentActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/title_activity_bbcode_login_aapf" android:name="br.com.bb.android._login_apf_bb_code.LoginAapfBBCodeActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:label="@string/app_container_bb_code" android:name="br.com.bb.android._login_apf_bb_code.LoginBBCode30Activity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name="br.com.bb.android._alteracao_senha_conta_facil.AlteracaoSenhaContaActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="br.com.bb.android.activity.CardReaderActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/app_container_wifi_agencia" android:name="br.com.bb.android.wifi.WifiSmartphoneActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name="br.com.bb.android.screen.GenericScreenActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="br.com.bb.android.international.ui.BBInternationalExternalTransacionalActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="br.com.bb.android.password.PasswordCentralActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|screenSize" android:exported="false" android:label="@string/app_bb_atendimento_title" android:name="br.com.bb.android.atendimento.BBAtendimentoActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:name="br.com.bb.android.atendimento.BBAtendimentoWebviewActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:label="@string/app_bbmensagens_title" android:name="br.com.bb.android.atendimento.BBAtendimentoMultimedia" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/app_login_title" android:name="br.com.bb.android.reactnative.ReactNativeActivity" android:screenOrientation="portrait" android:theme="@style/ApiBaseThemeNoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="screenSize" android:exported="false" android:label="@string/app_full_name" android:name="br.com.bb.android.temporarypasswordchange.pj.TemporaryPasswordChangeActivityPJ" android:noHistory="false" android:screenOrientation="portrait" android:theme="@style/ApiBaseThemeNoActionBar" android:windowSoftInputMode="adjustPan"/>
+        <provider android:authorities="br.com.bb.android" android:name="br.com.bb.android.international.provider.InternationalAccountManagerContentProvider" android:windowSoftInputMode="adjustResize"/>
+        <provider android:authorities="br.com.bb.android.api.utils.provider" android:exported="false" android:grantUriPermissions="true" android:name="br.com.bb.android.api.utils.BBFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <activity android:exported="false" android:name="com.facebook.react.devsupport.DevSettingsActivity"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="br.com.bb.android.reactnative.ExternalCallRouteActivity" android:screenOrientation="portrait" android:theme="@style/NoDiplay" android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="application/pdf"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="nat" android:scheme="bbapp"/>
+                <data android:host="opr" android:scheme="bbapp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www49.bb.com.br" android:pathPrefix="/pagar-receber" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www49.bb.com.br" android:pathPrefix="/m" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www49.bb.com.br" android:pathPrefix="/sms" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www49.bb.com.br" android:pathPrefix="/google-assistant-actions" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="br.com.bb.android.telas.UrlSchemeActivity"/>
+        <activity android:configChanges="keyboardHidden|screenSize" android:exported="false" android:label="@string/app_notifications_title" android:name="br.com.bb.android.notifications.PushNotificationActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:exported="false" android:label="Débito Automático" android:name="br.com.bb.android.debitoautomatico.DebitoAutomaticoCameraActivity" android:screenOrientation="unspecified" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:label="Débito automático" android:name="br.com.bb.android.debitoautomatico.DebitoAutomaticoActivity" android:screenOrientation="unspecified" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="br.com.bb.android.reactnative.nativemodules.BBRNCardReaderActivity"/>
+        <activity android:name="br.com.bb.android.apptoapp.AppToAppOurocardActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="br.com.bb.android.intent.action.DEVICE_AUTHORIZATION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <receiver android:enabled="true" android:exported="true" android:name="br.com.bb.android.apptoapp.OurocardBroadcastReceiver">
+            <intent-filter>
+                <action android:name="br.com.bb.android.intent.action.DEVICE_AUTHORIZATION"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="br.com.bb.android.BBFirebaseInstanceIDListenerService" android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="true" android:name="br.com.bb.android.reactnative.LocationService"/>
+        <meta-data android:name="com.google.android.actions" android:resource="@xml/actions"/>
+        <activity android:name="br.com.bb.android.minhasfinancas.activity.CategoriaActivity" android:theme="@style/AppTranslucentTheme"/>
+        <activity android:name="br.com.bb.android.minhasfinancas.activity.TutorialPaginadoActivity" android:theme="@style/AppNoTitleTranslucentTheme"/>
+        <activity android:name="br.com.bb.android.minhasfinancas.activity.SelecaoCategoriaActivity" android:screenOrientation="portrait" android:theme="@style/AppThemePessoaFisica" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name="br.com.bb.android.minhasfinancas.activity.IRCategorizarActivity" android:screenOrientation="portrait" android:theme="@style/AppTranslucentTheme"/>
+        <activity android:name="br.com.bb.android.minhasfinancas.activity.ActivityTest"/>
+        <service android:exported="false" android:name="br.com.bb.android.reactnative.service.BundleDownloader"/>
+        <activity android:name="br.com.bb.android.api.ui.signature.SignaturePadActivity" android:screenOrientation="landscape"/>
+        <activity android:name="br.com.bb.android.api.webview.WebViewHtmlActivity"/>
+        <activity android:name="br.com.bb.android.perspective.correction.InputPerspectiveActivity" android:screenOrientation="landscape"/>
+        <activity android:name="br.com.bb.android.perspective.reactcomponent.InputPerspectiveReactActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.com.bb.android.perspective.reactcomponent.InputFromGalleryReactActivity" android:screenOrientation="portrait"/>
+        <receiver android:exported="true" android:name="org.matomo.sdk.extra.InstallReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="io.card.payment.CardIOActivity"/>
+        <activity android:name="io.card.payment.DataEntryActivity"/>
+        <provider android:authorities="br.com.bb.android.rnshare.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="cl.json.RNShareFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/share_download_paths"/>
+        </provider>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="br.com.bb.android.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="34"/>
+    </application>
+</manifest>
