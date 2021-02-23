@@ -1,8 +1,6 @@
-## Prática 2 (Parte 1)
-Execução: **python3 Parte1.py <diretório>**
+# Exercícios Práticos do Curso de Ciência de Dados (ci1030-ERE2)
+**Aluno**: Michal Andre
 
-**<diretório>:** pasta com os arquivos AndroidManifest.xml
+**Matrícula**: PPGINF-202000131795
 
-**Exemplo:**
-
-python3 Parte1.py manifest/
+Prática 2 nos diretórios T2/Parte1 e T2/Parte2
